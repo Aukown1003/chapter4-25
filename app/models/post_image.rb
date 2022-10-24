@@ -23,6 +23,8 @@ class PostImage < ApplicationRecord
     unless image.attached?
       # rails.root.joinはそのファイルまでのルートを表す
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
+      # デフォルト画像の設定。attachで添付、io:ファイル操作(ここではopen(open場所＝上で定義)),ファイルの名前,ファイルのタイプ
+      
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     else
       image
