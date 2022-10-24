@@ -7,4 +7,5 @@
   <!--created_atはデータ作成日。つまり投稿日を表す-->
   <!--'%Y=Year年(大文字)/%m=month月/%d=day日'-->
   <p>投稿日：<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
+  <%= link_to 'destroy'  %>
 </div>
