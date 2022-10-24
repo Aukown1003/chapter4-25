@@ -7,7 +7,13 @@ class PostImage < ApplicationRecord
   belongs_to :user
   # 1のpost_imeagesが消された時nのpost_commentsも同時に消える
   has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   # ここまでがモデル同士の関係になる
+  
+  # 引数で渡されたユーザーIDがfavoritesテーブル内に存在するか？
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
 
   # モデルの中にdef endで定義をすることで特定の処理を名前で呼び出すことができる
   # 今回はget_imageを呼び出したときに実行する内容を記載

@@ -11,6 +11,7 @@ class User < ApplicationRecord
   # 1のuserが消された時nのpost_imagesとpost_commentsも同時に消える
   has_many :post_images, dependent: :destroy
   has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
         # ここまでがモデル同士の関係になる
   
   # モデルの中にdef endで定義をすることで特定の処理を名前で呼び出すことができる
