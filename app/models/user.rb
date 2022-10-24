@@ -3,6 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+         
+  has_one_attached :profile_image
 
         #user = 1　に対して多数 = Nのpost_imegesがある
         #dependent: :destroyは１側が削除された時N側も削除されるという意味
