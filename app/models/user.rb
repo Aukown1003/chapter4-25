@@ -3,9 +3,15 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+  
   #  # 1対１(単数枚画像投稿)で関連付けるという宣言 = profile_image
   has_one_attached :profile_image
+  
+          #ここから 
+  # 1のuserが消された時nのpost_imagesとpost_commentsも同時に消える
+  has_many :post_images, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
+        # ここまでがモデル同士の関係になる
   
   # モデルの中にdef endで定義をすることで特定の処理を名前で呼び出すことができる
   # 今回はget_profile_imageを呼び出したときに実行する内容を記載
