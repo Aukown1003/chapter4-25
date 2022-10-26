@@ -1,3 +1,10 @@
+<!--render [部分テンプレートファイルの指定], [ローカル変数]: [渡す値]-->
+<!--render url, テンプレートで使用する値: 渡す値-->
+<!--「部分テンプレートのファイルの指定」はフォルダのある場所を示す。-->
+ <!--同じフォルダであるためlistでOK-->
+<%= render 'list', post_images: @post_images %>
+<!--以下すべて切り取り、_list.html.erbに移動-->
+
 <!--< % @post_images.each do |post_image| %>-->
 <!--<div>-->
 <!--  < %= link_to post_image_path(post_image.id) do %>-->
